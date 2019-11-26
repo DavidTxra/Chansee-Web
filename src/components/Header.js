@@ -1,39 +1,54 @@
-import React from 'react';
-import './Header.css';
+import React,{useState} from 'react';
+import "./Header.css";
+import ImgComp from "./ImgComp";
+import i1 from "./pics/1.jpg";
+import i2 from "./pics/2.jpg";
+import i3 from "./pics/3.jpg";
+import i4 from "./pics/4.jpg";
+import i5 from "./pics/5.jpg";
 
-class Header extends React.Component {
-    render(){
-        return(
-            <header className="Toolbar">
-                <nav className="Toolbar_navigation">
-                    <div className="Toolbar_logo"><a href="/">LOGO</a></div>
-                    <div className="Toolbar_navigation-items">
-                        <ul>
-                            <li><a href="/">Accueil</a></li>
-                            <li><a href="/">Règles</a></li>
-                            <li><a href="/">Blog</a></li>
-                            <li><a href="/">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div className="spacer" />
-                    <div className="Toolbar_login">
-                        <ul>
-                         <li><a href="/">Connexion /</a></li>
-                         <li><a href="/">Inscription</a></li>
-                     </ul>
-                     </div>
 
-                 </nav>
+
+function Header() {
+    let sliderArr = [
+    <ImgComp src={i1}/>,
+    <ImgComp src={i2}/>,
+    <ImgComp src={i3}/>,
+    <ImgComp src={i4}/>,
+    <ImgComp src={i5}/>
+    ];
+    const [x, setX] = useState(0)
+    const goLeft = () => {
+        setX(x + 100);
+        x === 0 ? setX(-100 * (sliderArr.length -1)) : setX(x + 100);
+    };
+    const goRight = () => {
+        x=== -100*(sliderArr.length-1) ? setX(0) : setX(x - 100);
+    };
+
     
 
-
-
-             </header>
-
-        );
-
-    }
-
+    return(
+        <div className="Slider">
+            {sliderArr.map((item,index)=>{
+                    return(
+                        <div  key={index} className="Slide" style={{ transform: `translateX(${x}%)`}}> 
+                            {item}
+                        </div>
+                    );})
+                
+                
+            
+            }
+            <button id="goLeft" onClick={goLeft}>
+            <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="goRight" onClick={goRight}>
+            <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        
+    );
 }
 
 export default Header;
