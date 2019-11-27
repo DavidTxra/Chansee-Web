@@ -1,25 +1,55 @@
 import React from 'react';
-import logo from './logo.svg';
+import Home from './components/home/Home.js';
 import './App.css';
+import {BrowserRouter as Router, NavLink, Route} from "react-router-dom";
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React Test
-        </a>
-      </header>
+       <header className="Toolbar">
+                <nav className="Toolbar_navigation">
+                    <div className="Toolbar_logo"><a href="/">CHANSEE</a></div>
+                    <div className="Toolbar_navigation-items">
+                        <ul>
+                            <li><NavLink to="/">Accueil</NavLink></li>
+                            <li><NavLink to="/">Règles</NavLink></li>
+                            <li><NavLink to="/">Blog</NavLink></li>
+                            <li><NavLink to="/">Contact</NavLink></li>
+                        </ul>
+                    </div>
+                    <div className="spacer" />
+                    <div className="Toolbar_login">
+                        <ul>
+                         <li><NavLink to="/">Connexion /</NavLink></li>
+                         <li><NavLink to="/">Inscription</NavLink></li>
+                     </ul>
+                     </div>
+                 </nav>
+        </header>
+        <main>
+          <Route exact path="/" component={Home}></Route>
+        </main>
+        <div className="Main-footer">
+            <div className="Container">
+                <div className="Logo">
+                    <a href="/">CHANSEE</a>
+                </div>
+                <div className="Footer-nav">
+                    <ul>
+                        <li><a href="/">Accueil</a></li>
+                        <li><a href="/">Règles</a></li>
+                        <li><a href="/">Blog</a></li>
+                        <li><a href="/">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div className="Copyright">
+                <p>&copy; 2019 Chansee</p>
+            </div>
+        </div>
     </div>
+    </Router>
   );
 }
 
