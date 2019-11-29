@@ -1,5 +1,7 @@
 import React from 'react';
 import Home from './components/home/Home.js';
+import Rule from './components/rules/Rule.js';
+
 import './App.css';
 import {BrowserRouter as Router, NavLink, Route} from "react-router-dom";
 
@@ -13,7 +15,7 @@ function App() {
                     <div className="Toolbar_navigation-items">
                         <ul>
                             <li><NavLink to="/">Accueil</NavLink></li>
-                            <li><NavLink to="/">Règles</NavLink></li>
+                            <li><NavLink to="/regles">Règles</NavLink></li>
                             <li><NavLink to="/">Blog</NavLink></li>
                             <li><NavLink to="/">Contact</NavLink></li>
                         </ul>
@@ -29,6 +31,7 @@ function App() {
         </header>
         <main>
           <Route exact path="/" component={Home}></Route>
+          <Route exact path="/regles" component={Rule}></Route>
         </main>
         <div className="Main-footer">
             <div className="Container">
@@ -38,7 +41,7 @@ function App() {
                 <div className="Footer-nav">
                     <ul>
                         <li><a href="/">Accueil</a></li>
-                        <li><a href="/">Règles</a></li>
+                        <li><a href="/regles">Règles</a></li>
                         <li><a href="/">Blog</a></li>
                         <li><a href="/">Contact</a></li>
                     </ul>
