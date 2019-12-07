@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './components/home/Home.js';
 import Rule from './components/rules/Rule.js';
+import Contact from './components/contact/Contact.js';
 
 import './App.css';
 import {BrowserRouter as Router, NavLink, Route} from "react-router-dom";
@@ -17,7 +18,7 @@ function App() {
                             <li><NavLink to="/">Accueil</NavLink></li>
                             <li><NavLink to="/regles">Règles</NavLink></li>
                             <li><NavLink to="/">Blog</NavLink></li>
-                            <li><NavLink to="/">Contact</NavLink></li>
+                            <li><NavLink to="/contact">Contact</NavLink></li>
                         </ul>
                     </div>
                     <div className="spacer" />
@@ -32,6 +33,7 @@ function App() {
         <main>
           <Route exact path="/" component={Home}></Route>
           <Route exact path="/regles" component={Rule}></Route>
+          <Route exact path="/contact" component={Contact}></Route>
         </main>
         <div className="Main-footer">
             <div className="Container">
