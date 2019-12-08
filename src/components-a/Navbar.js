@@ -17,12 +17,14 @@ class Navbar extends React.Component {
                         </ul>
                     </div>
                     <div className="spacer" />
-                    <div className="Toolbar_login">
+
+                    {/* <div className="Toolbar_login">
                         <ul>
                          <li><a href="/">Connexion /</a></li>
                          <li><a href="/">Inscription</a></li>
                      </ul>
-                     </div>
+                     </div> */}
+
                  </nav>
              </header>
 

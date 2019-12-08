@@ -3,8 +3,10 @@
     width: 100%;
     background: green;
     height: 70px;
+    position: absolute;
     top: 0;
     left: 0;
+    z-index: 9999;
 }
 
 .Toolbar_navigation{

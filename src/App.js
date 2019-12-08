@@ -1,8 +1,7 @@
 import React from 'react';
-import Navbar from './components-r/Navbar';
-import Banner from './components-r/Banner';
-import Rule from './components-r/Rule';
-import Footer from './components-r/Footer';
+import Navbar from './components-a/Navbar';
+import MenuAdmin from './components-a/MenuAdmin';
+import Tableau from './components-a/Tableau';
 import './App.css';
 
 function App() {
@@ -10,9 +9,8 @@ function App() {
     <div className="App">
       
       <Navbar />
-      <Banner />
-      <Rule />
-      <Footer />
+      <MenuAdmin />
+      <Tableau />
 
     </div>
   );
