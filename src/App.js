@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './components/home/Home.js';
 import Rule from './components/rules/Rule.js';
+import Administration from './components/admin/Admin.js';
 
 import './App.css';
 import {BrowserRouter as Router, NavLink, Route} from "react-router-dom";
@@ -18,6 +19,7 @@ function App() {
                             <li><NavLink to="/regles">Règles</NavLink></li>
                             <li><NavLink to="/">Blog</NavLink></li>
                             <li><NavLink to="/">Contact</NavLink></li>
+                            <li><NavLink to="/admin">Admin</NavLink></li>
                         </ul>
                     </div>
                     <div className="spacer" />
@@ -32,6 +34,7 @@ function App() {
         <main>
           <Route exact path="/" component={Home}></Route>
           <Route exact path="/regles" component={Rule}></Route>
+          <Route exact path="/admin" component={Administration}></Route>
         </main>
         <div className="Main-footer">
             <div className="Container">
@@ -44,6 +47,7 @@ function App() {
                         <li><a href="/regles">Règles</a></li>
                         <li><a href="/">Blog</a></li>
                         <li><a href="/">Contact</a></li>
+                        <li><a href="/admin">Admin</a></li>
                     </ul>
                 </div>
             </div>
