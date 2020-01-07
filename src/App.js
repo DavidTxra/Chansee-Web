@@ -2,13 +2,49 @@ import React from 'react';
 import Home from './components/home/Home.js';
 import Rule from './components/rules/Rule.js';
 import Contact from './components/contact/Contact.js';
+import Login from './components/login/Login';
+import fire from './components/login/fire';
+import LoggedIn from './components/login/LoggedIn';
+
+
+
 
 import './App.css';
 import {BrowserRouter as Router, NavLink, Route} from "react-router-dom";
 
-function App() {
+class App extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            user: null,
+        };
+
+        this.authListener = this.authListener.bind(this);
+
+    }
+
+    componentDidMount(){
+        this.authListener();
+    }
+
+    authListener(){
+        fire.auth().onAuthStateChanged((user) => {
+            if (user){
+                this.setState({ user });
+            }
+            else {
+                this.setState({ user: null });
+            }
+        })
+    }
+
+    render(){
+
   return (
     <Router>
+
     <div className="App">
        <header className="Toolbar">
                 <nav className="Toolbar_navigation">
@@ -24,16 +60,19 @@ function App() {
                     <div className="spacer" />
                     <div className="Toolbar_login">
                         <ul>
-                         <li><NavLink to="/">Connexion /</NavLink></li>
-                         <li><NavLink to="/">Inscription</NavLink></li>
+                         <li><NavLink to="/login">Connexion /</NavLink></li>
+                         <li><NavLink to="/inscription">Inscription</NavLink></li>
                      </ul>
                      </div>
                  </nav>
         </header>
+
+        
         <main>
           <Route exact path="/" component={Home}></Route>
           <Route exact path="/regles" component={Rule}></Route>
           <Route exact path="/contact" component={Contact}></Route>
+          <Route exact path="/login" component={Login}></Route>
         </main>
         <div className="Main-footer">
             <div className="Container">
@@ -57,5 +96,5 @@ function App() {
     </Router>
   );
 }
-
+}
 export default App;
